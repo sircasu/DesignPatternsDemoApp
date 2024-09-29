@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850DA7F22CA9562900B76018 /* AFHTTPClientSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F12CA9562900B76018 /* AFHTTPClientSingleton.swift */; };
 		851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E22C99F1D700EFA427 /* AppDelegate.swift */; };
 		851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E42C99F1D700EFA427 /* SceneDelegate.swift */; };
 		851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E62C99F1D700EFA427 /* ListViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		850DA7F12CA9562900B76018 /* AFHTTPClientSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHTTPClientSingleton.swift; sourceTree = "<group>"; };
 		851094DF2C99F1D700EFA427 /* FakeStoreListDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStoreListDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		851094E22C99F1D700EFA427 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		851094E42C99F1D700EFA427 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				8535F5342CA5F9E300C987A8 /* RemoteProductsLoader.swift */,
 				8535F5372CA5FA0C00C987A8 /* ProductsItemMapper.swift */,
 				8535F53B2CA5FA4500C987A8 /* URLSessionHTTPClient.swift */,
+				850DA7F12CA9562900B76018 /* AFHTTPClientSingleton.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				8535F5382CA5FA0C00C987A8 /* ProductsItemMapper.swift in Sources */,
 				851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */,
 				8535F53A2CA5FA2E00C987A8 /* HTTPClient.swift in Sources */,
+				850DA7F22CA9562900B76018 /* AFHTTPClientSingleton.swift in Sources */,
 				8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */,
 				851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */,
 				851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */,

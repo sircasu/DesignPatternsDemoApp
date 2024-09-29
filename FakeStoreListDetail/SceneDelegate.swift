@@ -50,10 +50,12 @@ final class ListUIComposer {
         
         let AFRemoteLoader = MainQueueDispatchProductsLoaderDecorator(decoratee: RemoteProductsLoader(httpClient: AFHTTPClient()))
         
+        let AFRemoteLoaderWithSingletonClient = MainQueueDispatchProductsLoaderDecorator(decoratee: RemoteProductsLoader(httpClient: AFHTTPClientSingleton.shared))
+        
         let mockLoader = MainQueueDispatchProductsLoaderDecorator(decoratee: MockProductsLoader())
         let listController = storyboard.instantiateInitialViewController(creator: { coder in
             
-            return ListViewController(coder: coder, onButtonTapped: onButtonPressed, listLoader: AFRemoteLoader)
+            return ListViewController(coder: coder, onButtonTapped: onButtonPressed, listLoader: AFRemoteLoaderWithSingletonClient)
         })
         
         return listController!
