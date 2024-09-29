@@ -14,6 +14,7 @@ class ListViewController: UIViewController {
     
     var onButtonTapped: ((Int) -> Void)?
     var listLoader: ProductsLoader?
+    var localProductLoader: LocalProductLoader?
     
     private var items: [ProductItem] = []
     
@@ -21,20 +22,34 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         
-        listLoader?.loadProducts { [weak self] result in
+        localProductLoader?.loadProducts { [weak self] res in
             
-            if case .success(let listItems) = result {
-                self?.items = listItems
-                self?.tableView.reloadData()
+            guard let self = self else { return }
+            
+            switch res {
+            case let .success(localItems):
+                print("found", localItems)
+                if !localItems.isEmpty {
+                    self.items = localItems
+                    self.tableView.reloadData()
+                    return
+                }
+                self.loadRemoteProducts()
+            case .failure:
+                print("not found")
+                self.loadRemoteProducts()
             }
         }
+        
+        
     }
 
     
-    init?(coder: NSCoder, onButtonTapped: ((Int) -> Void)?, listLoader: ProductsLoader) {
+    init?(coder: NSCoder, onButtonTapped: ((Int) -> Void)?, listLoader: ProductsLoader, localProductLoader: LocalProductLoader) {
         super.init(coder: coder)
         self.onButtonTapped = onButtonTapped
         self.listLoader = listLoader
+        self.localProductLoader = localProductLoader
     }
     
     required init?(coder: NSCoder) {
@@ -46,6 +61,20 @@ class ListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    //
+    func loadRemoteProducts() {
+        listLoader?.loadProducts { [weak self] result in
+            
+            if case .success(let listItems) = result {
+                self?.items = listItems
+                // todo save to local
+                self?.localProductLoader?.save(listItems) { _ in print("saved") }
+
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 
