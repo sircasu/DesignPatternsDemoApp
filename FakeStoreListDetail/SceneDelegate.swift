@@ -47,10 +47,13 @@ final class ListUIComposer {
         let storyboard = UIStoryboard(name: "List", bundle: bundle)
         
         let remoteLoader = MainQueueDispatchProductsLoaderDecorator(decoratee: RemoteProductsLoader(httpClient: URLSessionHTTPClient(session: URLSession(configuration: URLSessionConfiguration.ephemeral))))
+        
+        let AFRemoteLoader = MainQueueDispatchProductsLoaderDecorator(decoratee: RemoteProductsLoader(httpClient: AFHTTPClient()))
+        
         let mockLoader = MainQueueDispatchProductsLoaderDecorator(decoratee: MockProductsLoader())
         let listController = storyboard.instantiateInitialViewController(creator: { coder in
             
-            return ListViewController(coder: coder, onButtonTapped: onButtonPressed, listLoader: remoteLoader)
+            return ListViewController(coder: coder, onButtonTapped: onButtonPressed, listLoader: AFRemoteLoader)
         })
         
         return listController!

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 final class MockProductsLoader: ProductsLoader {
     func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
         

@@ -23,6 +23,8 @@
 		8535F53A2CA5FA2E00C987A8 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F5392CA5FA2E00C987A8 /* HTTPClient.swift */; };
 		8535F53C2CA5FA4500C987A8 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F53B2CA5FA4500C987A8 /* URLSessionHTTPClient.swift */; };
 		8535F53F2CA5FA6800C987A8 /* MockProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F53E2CA5FA6800C987A8 /* MockProductsLoader.swift */; };
+		8535F5422CA5FE1600C987A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8535F5412CA5FE1600C987A8 /* Alamofire */; };
+		8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */; };
 		85E378512C9B7A4A005BF449 /* ProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E378502C9B7A4A005BF449 /* ProductsLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,7 @@
 		8535F5392CA5FA2E00C987A8 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		8535F53B2CA5FA4500C987A8 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		8535F53E2CA5FA6800C987A8 /* MockProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsLoader.swift; sourceTree = "<group>"; };
+		8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHTTPClient.swift; sourceTree = "<group>"; };
 		85E378502C9B7A4A005BF449 /* ProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8535F5422CA5FE1600C987A8 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +180,7 @@
 		8535F5362CA5F9FA00C987A8 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */,
 				8535F5342CA5F9E300C987A8 /* RemoteProductsLoader.swift */,
 				8535F5372CA5FA0C00C987A8 /* ProductsItemMapper.swift */,
 				8535F53B2CA5FA4500C987A8 /* URLSessionHTTPClient.swift */,
@@ -279,6 +284,9 @@
 				Base,
 			);
 			mainGroup = 851094D62C99F1D700EFA427;
+			packageReferences = (
+				8535F5402CA5FE1600C987A8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 851094E02C99F1D700EFA427 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -326,6 +334,7 @@
 				8535F5382CA5FA0C00C987A8 /* ProductsItemMapper.swift in Sources */,
 				851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */,
 				8535F53A2CA5FA2E00C987A8 /* HTTPClient.swift in Sources */,
+				8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */,
 				851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */,
 				851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */,
 				85E378512C9B7A4A005BF449 /* ProductsLoader.swift in Sources */,
@@ -669,6 +678,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8535F5402CA5FE1600C987A8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire?tab=readme-ov-file#swift-package-manager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8535F5412CA5FE1600C987A8 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8535F5402CA5FE1600C987A8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 851094D72C99F1D700EFA427 /* Project object */;
 }
