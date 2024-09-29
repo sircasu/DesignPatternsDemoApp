@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		850DA7F22CA9562900B76018 /* AFHTTPClientSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F12CA9562900B76018 /* AFHTTPClientSingleton.swift */; };
+		850DA7F42CA95A6000B76018 /* ListUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F32CA95A5900B76018 /* ListUIComposer.swift */; };
+		850DA7F62CA95BAD00B76018 /* DetailUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F52CA95BAD00B76018 /* DetailUIComposer.swift */; };
+		850DA7F82CA95BE100B76018 /* MainQueueDecorators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F72CA95BDB00B76018 /* MainQueueDecorators.swift */; };
+		850DA7FA2CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F92CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift */; };
 		851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E22C99F1D700EFA427 /* AppDelegate.swift */; };
 		851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E42C99F1D700EFA427 /* SceneDelegate.swift */; };
 		851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E62C99F1D700EFA427 /* ListViewController.swift */; };
@@ -48,6 +52,10 @@
 
 /* Begin PBXFileReference section */
 		850DA7F12CA9562900B76018 /* AFHTTPClientSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHTTPClientSingleton.swift; sourceTree = "<group>"; };
+		850DA7F32CA95A5900B76018 /* ListUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUIComposer.swift; sourceTree = "<group>"; };
+		850DA7F52CA95BAD00B76018 /* DetailUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUIComposer.swift; sourceTree = "<group>"; };
+		850DA7F72CA95BDB00B76018 /* MainQueueDecorators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDecorators.swift; sourceTree = "<group>"; };
+		850DA7F92CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchProductsLoaderDecorator.swift; sourceTree = "<group>"; };
 		851094DF2C99F1D700EFA427 /* FakeStoreListDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStoreListDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		851094E22C99F1D700EFA427 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		851094E42C99F1D700EFA427 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,13 +129,15 @@
 		851094E12C99F1D700EFA427 /* FakeStoreListDetail */ = {
 			isa = PBXGroup;
 			children = (
+				850DA7F72CA95BDB00B76018 /* MainQueueDecorators.swift */,
 				851094E22C99F1D700EFA427 /* AppDelegate.swift */,
 				851094E42C99F1D700EFA427 /* SceneDelegate.swift */,
+				8535F5392CA5FA2E00C987A8 /* HTTPClient.swift */,
+				85E378502C9B7A4A005BF449 /* ProductsLoader.swift */,
 				851095142C99F28500EFA427 /* List */,
 				851095162C99FC8C00EFA427 /* Detail */,
 				851094F02C99F1D800EFA427 /* Info.plist */,
 				851095152C99F29900EFA427 /* Resources */,
-				8535F5392CA5FA2E00C987A8 /* HTTPClient.swift */,
 			);
 			path = FakeStoreListDetail;
 			sourceTree = "<group>";
@@ -152,11 +162,12 @@
 		851095142C99F28500EFA427 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				850DA7F32CA95A5900B76018 /* ListUIComposer.swift */,
 				8535F53D2CA5FA5B00C987A8 /* Mock */,
 				8535F5362CA5F9FA00C987A8 /* Remote */,
 				851094E62C99F1D700EFA427 /* ListViewController.swift */,
 				851095122C99F28200EFA427 /* List.storyboard */,
-				85E378502C9B7A4A005BF449 /* ProductsLoader.swift */,
+				850DA7F92CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 			children = (
 				851095172C99FCA200EFA427 /* DetailViewController.swift */,
 				851095192C99FCAA00EFA427 /* Detail.storyboard */,
+				850DA7F52CA95BAD00B76018 /* DetailUIComposer.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -334,17 +346,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850DA7F62CA95BAD00B76018 /* DetailUIComposer.swift in Sources */,
+				850DA7FA2CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift in Sources */,
 				8535F5382CA5FA0C00C987A8 /* ProductsItemMapper.swift in Sources */,
 				851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */,
 				8535F53A2CA5FA2E00C987A8 /* HTTPClient.swift in Sources */,
 				850DA7F22CA9562900B76018 /* AFHTTPClientSingleton.swift in Sources */,
 				8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */,
+				850DA7F42CA95A6000B76018 /* ListUIComposer.swift in Sources */,
 				851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */,
 				851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */,
 				85E378512C9B7A4A005BF449 /* ProductsLoader.swift in Sources */,
 				8535F53F2CA5FA6800C987A8 /* MockProductsLoader.swift in Sources */,
 				8535F5352CA5F9E300C987A8 /* RemoteProductsLoader.swift in Sources */,
 				851095182C99FCA200EFA427 /* DetailViewController.swift in Sources */,
+				850DA7F82CA95BE100B76018 /* MainQueueDecorators.swift in Sources */,
 				8535F53C2CA5FA4500C987A8 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
