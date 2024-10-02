@@ -56,7 +56,6 @@ extension LocalProductLoader: ProductsLoader {
             switch res {
             case let .success(localProducsItem):
                 completion(.success(localProducsItem.toModels()))
-                break
             case let .failure(error):
                 completion(.failure(error))
             }
@@ -147,7 +146,38 @@ final class UserDefaultsProductStore: ProductStore {
             } catch {
                 completion(.failure(error))
             }
+        } else {
+            completion(.failure(NSError(domain: "aa", code: 0)))
         }
     }
    
+}
+
+
+
+//
+class ProductsLoaderStrategy: ProductsLoader {
+    private let primary: ProductsLoader
+    private let fallback: ProductsLoader
+    
+    init(primary: ProductsLoader, fallback: ProductsLoader) {
+        self.primary = primary
+        self.fallback = fallback
+    }
+    
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+        
+        primary.loadProducts { [weak self] result in
+            
+            switch result {
+            case .success:
+                print("from local")
+                completion(result)
+            case .failure:
+                print("from remote")
+                self?.fallback.loadProducts(completion: completion)
+            }
+        }
+    }
+    
 }

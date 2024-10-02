@@ -35,3 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.pushViewController(detailController, animated: true)
     }
 }
+
+
+
+

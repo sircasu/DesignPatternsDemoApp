@@ -26,9 +26,14 @@ final class ListUIComposer {
         let localLoader = LocalProductLoader(productStore: UserDefaultsProductStore())
         //
         
+        let loaderWithDecorator = ProductsLoaderStrategy(
+            primary: localLoader,
+            fallback: RemoteProductLoaderDecorator(decoratee: AFRemoteLoaderWithSingletonClient, cache: localLoader)
+        )
+        
         let listController = storyboard.instantiateInitialViewController(creator: { coder in
             
-            return ListViewController(coder: coder, onButtonTapped: onButtonPressed, listLoader: AFRemoteLoaderWithSingletonClient, localProductLoader: localLoader)
+            return ListViewController(coder: coder, onButtonTapped: onButtonPressed, listLoader: loaderWithDecorator)
         })
         
         return listController!
