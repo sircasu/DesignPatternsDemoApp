@@ -7,36 +7,6 @@
 import Foundation
 
 
-struct LocalProductItem: Codable {
-    let id: Int
-    let title: String
-    let price: Double?
-    let desctiption: String?
-    let category: String?
-    let imageURL: URL?
-    let rating: LocalRatingItem?
-}
-
-struct LocalRatingItem: Codable {
-    let rate: Double?
-    let count: Int?
-}
-
-//
-
-protocol ProductStore {
-    
-    func deleteAll()
-    func insert(_ products: [LocalProductItem], completion: @escaping (Result<Void, Error>) -> Void)
-    func retrieve(completion: @escaping (Result<[LocalProductItem], Error>) -> Void)
-}
-
-
-protocol ProductCache {
-    func save(_ products: [ProductItem], completion: @escaping (Result<Void, Error>) -> Void)
-}
-//
-
 final class LocalProductLoader {
     
     private let productStore: ProductStore
@@ -70,8 +40,6 @@ extension LocalProductLoader: ProductCache {
             completion(res)
         }
     }
-    
-    
 }
 
 
@@ -111,73 +79,4 @@ private extension Array where Element == ProductItem {
                 )
         }
     }
-}
-
-
-//
-
-final class UserDefaultsProductStore: ProductStore {
-    
-    func deleteAll() {
-        UserDefaults.standard.removeObject(forKey: "products")
-    }
-    
-    func insert(_ products: [LocalProductItem], completion: @escaping (Result<Void, Error>) -> Void) {
-        
-        do {
-            let encodedData = try JSONEncoder().encode(products)
-            UserDefaults.standard.set(encodedData, forKey: "products")
-            completion(.success(()))
-        } catch {
-            completion(.failure(error))
-        }
-
-    }
-    
-    func retrieve(completion: @escaping (Result<[LocalProductItem],  Error>) -> Void) {
-        
-        if let savedData = UserDefaults.standard.object(forKey: "products") as? Data {
-
-            do{
-
-                let products = try JSONDecoder().decode([LocalProductItem].self, from: savedData)
-                completion(.success(products))
-
-            } catch {
-                completion(.failure(error))
-            }
-        } else {
-            completion(.failure(NSError(domain: "aa", code: 0)))
-        }
-    }
-   
-}
-
-
-
-//
-class ProductsLoaderStrategy: ProductsLoader {
-    private let primary: ProductsLoader
-    private let fallback: ProductsLoader
-    
-    init(primary: ProductsLoader, fallback: ProductsLoader) {
-        self.primary = primary
-        self.fallback = fallback
-    }
-    
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
-        
-        primary.loadProducts { [weak self] result in
-            
-            switch result {
-            case .success:
-                print("from local")
-                completion(result)
-            case .failure:
-                print("from remote")
-                self?.fallback.loadProducts(completion: completion)
-            }
-        }
-    }
-    
 }

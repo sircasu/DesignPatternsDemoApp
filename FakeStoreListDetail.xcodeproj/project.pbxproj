@@ -14,6 +14,10 @@
 		850DA7FA2CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7F92CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift */; };
 		850DA7FD2CA95D4900B76018 /* LocalProductLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7FC2CA95D3B00B76018 /* LocalProductLoader.swift */; };
 		850DA7FF2CADED9400B76018 /* RemoteProductLoaderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA7FE2CADED9400B76018 /* RemoteProductLoaderDecorator.swift */; };
+		850DA8012CADF28E00B76018 /* UserDefaultsProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA8002CADF28E00B76018 /* UserDefaultsProductStore.swift */; };
+		850DA8032CADF2B700B76018 /* ProductsLoaderStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA8022CADF2B700B76018 /* ProductsLoaderStrategy.swift */; };
+		850DA8052CADF2E400B76018 /* ProductCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA8042CADF2E400B76018 /* ProductCache.swift */; };
+		850DA8072CADF30600B76018 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850DA8062CADF30600B76018 /* ProductStore.swift */; };
 		851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E22C99F1D700EFA427 /* AppDelegate.swift */; };
 		851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E42C99F1D700EFA427 /* SceneDelegate.swift */; };
 		851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851094E62C99F1D700EFA427 /* ListViewController.swift */; };
@@ -60,6 +64,10 @@
 		850DA7F92CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchProductsLoaderDecorator.swift; sourceTree = "<group>"; };
 		850DA7FC2CA95D3B00B76018 /* LocalProductLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProductLoader.swift; sourceTree = "<group>"; };
 		850DA7FE2CADED9400B76018 /* RemoteProductLoaderDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProductLoaderDecorator.swift; sourceTree = "<group>"; };
+		850DA8002CADF28E00B76018 /* UserDefaultsProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProductStore.swift; sourceTree = "<group>"; };
+		850DA8022CADF2B700B76018 /* ProductsLoaderStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoaderStrategy.swift; sourceTree = "<group>"; };
+		850DA8042CADF2E400B76018 /* ProductCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCache.swift; sourceTree = "<group>"; };
+		850DA8062CADF30600B76018 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
 		851094DF2C99F1D700EFA427 /* FakeStoreListDetail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStoreListDetail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		851094E22C99F1D700EFA427 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		851094E42C99F1D700EFA427 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				850DA7FC2CA95D3B00B76018 /* LocalProductLoader.swift */,
+				850DA8002CADF28E00B76018 /* UserDefaultsProductStore.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -146,6 +155,9 @@
 				851094E42C99F1D700EFA427 /* SceneDelegate.swift */,
 				8535F5392CA5FA2E00C987A8 /* HTTPClient.swift */,
 				85E378502C9B7A4A005BF449 /* ProductsLoader.swift */,
+				850DA8062CADF30600B76018 /* ProductStore.swift */,
+				850DA8022CADF2B700B76018 /* ProductsLoaderStrategy.swift */,
+				850DA8042CADF2E400B76018 /* ProductCache.swift */,
 				851095142C99F28500EFA427 /* List */,
 				851095162C99FC8C00EFA427 /* Detail */,
 				851094F02C99F1D800EFA427 /* Info.plist */,
@@ -362,13 +374,16 @@
 			files = (
 				850DA7F62CA95BAD00B76018 /* DetailUIComposer.swift in Sources */,
 				850DA7FA2CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift in Sources */,
+				850DA8052CADF2E400B76018 /* ProductCache.swift in Sources */,
 				8535F5382CA5FA0C00C987A8 /* ProductsItemMapper.swift in Sources */,
 				851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */,
+				850DA8072CADF30600B76018 /* ProductStore.swift in Sources */,
 				8535F53A2CA5FA2E00C987A8 /* HTTPClient.swift in Sources */,
 				850DA7F22CA9562900B76018 /* AFHTTPClientSingleton.swift in Sources */,
 				8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */,
 				850DA7F42CA95A6000B76018 /* ListUIComposer.swift in Sources */,
 				850DA7FD2CA95D4900B76018 /* LocalProductLoader.swift in Sources */,
+				850DA8032CADF2B700B76018 /* ProductsLoaderStrategy.swift in Sources */,
 				851094E32C99F1D700EFA427 /* AppDelegate.swift in Sources */,
 				850DA7FF2CADED9400B76018 /* RemoteProductLoaderDecorator.swift in Sources */,
 				851094E52C99F1D700EFA427 /* SceneDelegate.swift in Sources */,
@@ -377,6 +392,7 @@
 				8535F5352CA5F9E300C987A8 /* RemoteProductsLoader.swift in Sources */,
 				851095182C99FCA200EFA427 /* DetailViewController.swift in Sources */,
 				850DA7F82CA95BE100B76018 /* MainQueueDecorators.swift in Sources */,
+				850DA8012CADF28E00B76018 /* UserDefaultsProductStore.swift in Sources */,
 				8535F53C2CA5FA4500C987A8 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
