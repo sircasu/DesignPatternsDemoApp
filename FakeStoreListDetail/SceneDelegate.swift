@@ -11,8 +11,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    // remote loaders
+    private lazy var URLSessionRemoteLoader =  RemoteProductsLoader(httpClient: URLSessionHTTPClient(session: URLSession(configuration: URLSessionConfiguration.ephemeral)))
+    
+    private lazy var AFRemoteLoader = RemoteProductsLoader(httpClient: AFHTTPClient())
+
+    private lazy var AFRemoteLoaderWithSingletonClient = RemoteProductsLoader(httpClient: AFHTTPClientSingleton.shared)
+    //
+    // mock loader
+    private lazy var mockLoader = MockProductsLoader()
+    //
+    // local loader
+    let localLoader = LocalProductLoader(productStore: UserDefaultsProductStore())
+    //
+
+    
     private lazy var navigationController = UINavigationController(
         rootViewController: ListUIComposer.createListViewController(
+            productsLoader: ProductsLoaderStrategy(
+                primary: localLoader,
+                fallback: RemoteProductLoaderDecorator(decoratee: AFRemoteLoaderWithSingletonClient, cache: localLoader)
+            ),
+                
             onButtonPressed: onButtonPressed
         ))
     
@@ -35,7 +55,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.pushViewController(detailController, animated: true)
     }
 }
-
-
-
-

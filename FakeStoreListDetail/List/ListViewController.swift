@@ -48,9 +48,6 @@ class ListViewController: UIViewController {
             
             if case .success(let listItems) = result {
                 self?.items = listItems
-                // todo save to local
-//                self?.localProductLoader?.save(listItems) { _ in print("saved") }
-
                 self?.tableView.reloadData()
             }
         }
