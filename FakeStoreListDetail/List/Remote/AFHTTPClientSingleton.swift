@@ -20,10 +20,12 @@ class AFHTTPClientSingleton: HTTPClient {
             
             if let error = res.error {
                 completion(HTTPClient.Result.failure(error))
+                return
             }
             
             if let data = res.data, let response = res.response {
                 completion(HTTPClient.Result.success((data, response)))
+                return
             }
             
             completion(.failure(UnexpectedValueRepresentation()))

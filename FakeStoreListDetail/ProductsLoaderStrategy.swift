@@ -22,10 +22,10 @@ class ProductsLoaderStrategy: ProductsLoader {
             
             switch result {
             case .success:
-                print("from local")
+                print("(primary) from local")
                 completion(result)
             case .failure:
-                print("from remote")
+                print("(fallback) from remote")
                 self?.fallback.loadProducts(completion: completion)
             }
         }
