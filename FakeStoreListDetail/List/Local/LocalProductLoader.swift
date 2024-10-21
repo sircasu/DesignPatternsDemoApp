@@ -10,25 +10,31 @@ import Foundation
 final class LocalProductLoader {
     
     private let productStore: ProductStore
+    private let currentDate: () -> Date
     
-    init(productStore: ProductStore) {
+    init(productStore: ProductStore, currentDate: @escaping () -> Date) {
         self.productStore = productStore
+        self.currentDate = currentDate
     }
     
 }
 
 extension LocalProductLoader: ProductsLoader {
     
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         productStore.retrieve { res in
             
             switch res {
-            case let .success(localProducsItem):
-                completion(.success(localProducsItem.toModels()))
+            case let .success(.some(cache)):
+                // TODO: add validation
+                completion(.success(cache.products.toModels()))
             case let .failure(error):
                 completion(.failure(error))
+            case .success:
+                completion(.success([]))
             }
+            
         }
     }
 }
@@ -36,7 +42,7 @@ extension LocalProductLoader: ProductsLoader {
 extension LocalProductLoader: ProductCache {
     func save(_ products: [ProductItem], completion: @escaping (Result<Void, Error>) -> Void) {
         
-        productStore.insert(products.toLocal()) { res in
+        productStore.insert(products.toLocal() ,timestamp: currentDate()) { res in
             completion(res)
         }
     }

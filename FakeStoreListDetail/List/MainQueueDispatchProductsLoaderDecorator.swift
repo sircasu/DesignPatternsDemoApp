@@ -15,7 +15,7 @@ final class MainQueueDispatchProductsLoaderDecorator: ProductsLoader {
         self.decoratee = decoratee
     }
     
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         decoratee.loadProducts { res in
 

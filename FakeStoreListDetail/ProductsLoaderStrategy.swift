@@ -16,7 +16,7 @@ class ProductsLoaderStrategy: ProductsLoader {
         self.fallback = fallback
     }
     
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         primary.loadProducts { [weak self] result in
             

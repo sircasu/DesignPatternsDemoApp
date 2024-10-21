@@ -19,7 +19,7 @@ final class RemoteProductLoaderDecorator: ProductsLoader {
     }
     
     
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         decoratee.loadProducts { [weak self] result in
             

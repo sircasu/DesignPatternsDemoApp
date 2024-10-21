@@ -9,14 +9,24 @@ import Foundation
 
 final class UserDefaultsProductStore: ProductStore {
     
+    private struct Cache: Codable {
+        let products: [LocalProductItem]
+        let timestamp: Date
+        
+        var localProducts: [LocalProductItem] {
+            return products.map { LocalProductItem(id: $0.id, title: $0.title, price: $0.price, desctiption: $0.desctiption, category: $0.category, imageURL: $0.imageURL, rating: LocalRatingItem(rate: $0.rating?.rate, count: $0.rating?.count)) }
+        }
+    }
+    
     func deleteAll() {
         UserDefaults.standard.removeObject(forKey: "products")
     }
     
-    func insert(_ products: [LocalProductItem], completion: @escaping (Result<Void, Error>) -> Void) {
+    func insert(_ products: [LocalProductItem], timestamp: Date, completion: @escaping (InsertionCompletion)) {
         
         do {
-            let encodedData = try JSONEncoder().encode(products)
+            let cache = Cache(products: products, timestamp: timestamp)
+            let encodedData = try JSONEncoder().encode(cache)
             UserDefaults.standard.set(encodedData, forKey: "products")
             completion(.success(()))
         } catch {
@@ -25,14 +35,16 @@ final class UserDefaultsProductStore: ProductStore {
 
     }
     
-    func retrieve(completion: @escaping (Result<[LocalProductItem],  Error>) -> Void) {
+    func retrieve(completion: @escaping RetrievalCompletion) {
         
         if let savedData = UserDefaults.standard.object(forKey: "products") as? Data {
 
             do{
 
-                let products = try JSONDecoder().decode([LocalProductItem].self, from: savedData)
-                completion(.success(products))
+                let cache = try JSONDecoder().decode(Cache.self, from: savedData)
+//                completion(.success(products))
+                let cachedProducts = CachedProducts(products: cache.localProducts, timestamp: cache.timestamp)
+                completion(.success(cachedProducts))
 
             } catch {
                 completion(.failure(error))

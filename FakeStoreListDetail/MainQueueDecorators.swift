@@ -28,7 +28,7 @@ final class MainQueueDispatchDecorator<T> {
 extension MainQueueDispatchDecorator: ProductsLoader where T == ProductsLoader {
    
     
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         decoratee.loadProducts { [weak self] result in
             self?.dispatch { completion(result) }

@@ -36,6 +36,7 @@
 		8535F53F2CA5FA6800C987A8 /* MockProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F53E2CA5FA6800C987A8 /* MockProductsLoader.swift */; };
 		8535F5422CA5FE1600C987A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8535F5412CA5FE1600C987A8 /* Alamofire */; };
 		8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */; };
+		85517E6D2CC6A75D002DFD98 /* LocalProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85517E6C2CC6A750002DFD98 /* LocalProductItem.swift */; };
 		85E378512C9B7A4A005BF449 /* ProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E378502C9B7A4A005BF449 /* ProductsLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		8535F53B2CA5FA4500C987A8 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		8535F53E2CA5FA6800C987A8 /* MockProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsLoader.swift; sourceTree = "<group>"; };
 		8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHTTPClient.swift; sourceTree = "<group>"; };
+		85517E6C2CC6A750002DFD98 /* LocalProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProductItem.swift; sourceTree = "<group>"; };
 		85E378502C9B7A4A005BF449 /* ProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 		850DA7FB2CA95D1C00B76018 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				85517E6C2CC6A750002DFD98 /* LocalProductItem.swift */,
 				850DA7FC2CA95D3B00B76018 /* LocalProductLoader.swift */,
 				850DA8002CADF28E00B76018 /* UserDefaultsProductStore.swift */,
 			);
@@ -375,6 +378,7 @@
 				850DA7F62CA95BAD00B76018 /* DetailUIComposer.swift in Sources */,
 				850DA7FA2CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift in Sources */,
 				850DA8052CADF2E400B76018 /* ProductCache.swift in Sources */,
+				85517E6D2CC6A75D002DFD98 /* LocalProductItem.swift in Sources */,
 				8535F5382CA5FA0C00C987A8 /* ProductsItemMapper.swift in Sources */,
 				851094E72C99F1D700EFA427 /* ListViewController.swift in Sources */,
 				850DA8072CADF30600B76018 /* ProductStore.swift in Sources */,

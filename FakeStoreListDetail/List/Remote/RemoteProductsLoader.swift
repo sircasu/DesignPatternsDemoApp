@@ -20,7 +20,7 @@ final class RemoteProductsLoader: ProductsLoader {
         case connectivity
     }
     
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         let request = URLRequest(url: URL(string: "https://fakestoreapi.com/products")!)
         httpClient?.get(request: request) { res in

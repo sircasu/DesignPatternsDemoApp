@@ -9,7 +9,7 @@ import Foundation
 
 
 final class MockProductsLoader: ProductsLoader {
-    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void?) {
+    func loadProducts(completion: @escaping (ProductsLoader.Result) -> Void) {
         
         let items: [ProductItem] = [
             .init(id: 1, title: "Product 1", price: 10.0, desctiption: "Description 1", category: "Category 1", image: nil, rating: nil),

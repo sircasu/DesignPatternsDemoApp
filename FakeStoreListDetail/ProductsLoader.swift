@@ -24,5 +24,5 @@ struct RatingItem {
 
 protocol ProductsLoader {
     typealias Result = Swift.Result<[ProductItem], Error>
-    func loadProducts(completion: @escaping (Result) -> Void?)
+    func loadProducts(completion: @escaping (Result) -> Void)
 }

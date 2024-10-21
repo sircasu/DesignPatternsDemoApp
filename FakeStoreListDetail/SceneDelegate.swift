@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var mockLoader = MockProductsLoader()
     //
     // local loader
-    let localLoader = LocalProductLoader(productStore: UserDefaultsProductStore())
+    let localLoader = LocalProductLoader(productStore: UserDefaultsProductStore(), currentDate: Date.init)
     //
 
     
