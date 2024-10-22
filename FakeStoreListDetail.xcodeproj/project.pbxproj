@@ -37,6 +37,9 @@
 		8535F5422CA5FE1600C987A8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8535F5412CA5FE1600C987A8 /* Alamofire */; };
 		8535F5442CA6801700C987A8 /* AFHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */; };
 		85517E6D2CC6A75D002DFD98 /* LocalProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85517E6C2CC6A750002DFD98 /* LocalProductItem.swift */; };
+		85517E6F2CC7A802002DFD98 /* ProductsCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85517E6E2CC7A802002DFD98 /* ProductsCachePolicy.swift */; };
+		85517E712CC7AA26002DFD98 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85517E702CC7AA26002DFD98 /* ProductItem.swift */; };
+		85517E752CC7B20C002DFD98 /* ProductsLoaderCacheDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85517E742CC7B20C002DFD98 /* ProductsLoaderCacheDecorator.swift */; };
 		85E378512C9B7A4A005BF449 /* ProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E378502C9B7A4A005BF449 /* ProductsLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		8535F53E2CA5FA6800C987A8 /* MockProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsLoader.swift; sourceTree = "<group>"; };
 		8535F5432CA67FFF00C987A8 /* AFHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFHTTPClient.swift; sourceTree = "<group>"; };
 		85517E6C2CC6A750002DFD98 /* LocalProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProductItem.swift; sourceTree = "<group>"; };
+		85517E6E2CC7A802002DFD98 /* ProductsCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCachePolicy.swift; sourceTree = "<group>"; };
+		85517E702CC7AA26002DFD98 /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
+		85517E742CC7B20C002DFD98 /* ProductsLoaderCacheDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoaderCacheDecorator.swift; sourceTree = "<group>"; };
 		85E378502C9B7A4A005BF449 /* ProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +132,8 @@
 				85517E6C2CC6A750002DFD98 /* LocalProductItem.swift */,
 				850DA7FC2CA95D3B00B76018 /* LocalProductLoader.swift */,
 				850DA8002CADF28E00B76018 /* UserDefaultsProductStore.swift */,
+				85517E6E2CC7A802002DFD98 /* ProductsCachePolicy.swift */,
+				85517E742CC7B20C002DFD98 /* ProductsLoaderCacheDecorator.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 				851094E42C99F1D700EFA427 /* SceneDelegate.swift */,
 				8535F5392CA5FA2E00C987A8 /* HTTPClient.swift */,
 				85E378502C9B7A4A005BF449 /* ProductsLoader.swift */,
+				85517E702CC7AA26002DFD98 /* ProductItem.swift */,
 				850DA8062CADF30600B76018 /* ProductStore.swift */,
 				850DA8022CADF2B700B76018 /* ProductsLoaderStrategy.swift */,
 				850DA8042CADF2E400B76018 /* ProductCache.swift */,
@@ -377,6 +386,7 @@
 			files = (
 				850DA7F62CA95BAD00B76018 /* DetailUIComposer.swift in Sources */,
 				850DA7FA2CA95C2400B76018 /* MainQueueDispatchProductsLoaderDecorator.swift in Sources */,
+				85517E712CC7AA26002DFD98 /* ProductItem.swift in Sources */,
 				850DA8052CADF2E400B76018 /* ProductCache.swift in Sources */,
 				85517E6D2CC6A75D002DFD98 /* LocalProductItem.swift in Sources */,
 				8535F5382CA5FA0C00C987A8 /* ProductsItemMapper.swift in Sources */,
@@ -395,6 +405,8 @@
 				8535F53F2CA5FA6800C987A8 /* MockProductsLoader.swift in Sources */,
 				8535F5352CA5F9E300C987A8 /* RemoteProductsLoader.swift in Sources */,
 				851095182C99FCA200EFA427 /* DetailViewController.swift in Sources */,
+				85517E752CC7B20C002DFD98 /* ProductsLoaderCacheDecorator.swift in Sources */,
+				85517E6F2CC7A802002DFD98 /* ProductsCachePolicy.swift in Sources */,
 				850DA7F82CA95BE100B76018 /* MainQueueDecorators.swift in Sources */,
 				850DA8012CADF28E00B76018 /* UserDefaultsProductStore.swift in Sources */,
 				8535F53C2CA5FA4500C987A8 /* URLSessionHTTPClient.swift in Sources */,

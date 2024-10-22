@@ -18,8 +18,9 @@ final class UserDefaultsProductStore: ProductStore {
         }
     }
     
-    func deleteAll() {
+    func deleteAll(completion: @escaping DeletionCompletion) {
         UserDefaults.standard.removeObject(forKey: "products")
+        completion(.success(()))
     }
     
     func insert(_ products: [LocalProductItem], timestamp: Date, completion: @escaping (InsertionCompletion)) {

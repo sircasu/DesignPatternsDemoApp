@@ -21,9 +21,14 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         
-        self.loadProducts()
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadProducts()
+    }
+    
     
     init?(coder: NSCoder, onButtonTapped: ((Int) -> Void)?, listLoader: ProductsLoader) {
         super.init(coder: coder)

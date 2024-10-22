@@ -30,6 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         rootViewController: ListUIComposer.createListViewController(
             productsLoader: ProductsLoaderStrategy(
                 primary: localLoader,
+                
                 fallback: RemoteProductLoaderDecorator(decoratee: AFRemoteLoaderWithSingletonClient, cache: localLoader)
             ),
                 
@@ -54,4 +55,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         navigationController.pushViewController(detailController, animated: true)
     }
+    
 }
