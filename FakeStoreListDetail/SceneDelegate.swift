@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -24,14 +25,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // local loader
     let localLoader = LocalProductLoader(productStore: UserDefaultsProductStore(), currentDate: Date.init)
     //
+    
+    // core data store
+    private lazy var coreDataStore: ProductStore = {
+        try! CoreDataProductStore(storeURL: NSPersistentContainer
+            .defaultDirectoryURL()
+            .appendingPathComponent("products-store.sqlite")
+        )
+    }()
+    // core data local loader
+    private lazy var localCoreDataProductLoader: LocalProductLoader = {
+        LocalProductLoader(productStore: coreDataStore, currentDate: Date.init)
+    }()
 
     
     private lazy var navigationController = UINavigationController(
         rootViewController: ListUIComposer.createListViewController(
             productsLoader: ProductsLoaderStrategy(
-                primary: localLoader,
+                primary: localCoreDataProductLoader,
                 
-                fallback: RemoteProductLoaderDecorator(decoratee: AFRemoteLoaderWithSingletonClient, cache: localLoader)
+                fallback: RemoteProductLoaderDecorator(decoratee: AFRemoteLoaderWithSingletonClient, cache: localCoreDataProductLoader)
             ),
                 
             onButtonPressed: onButtonPressed

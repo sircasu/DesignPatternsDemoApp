@@ -77,7 +77,7 @@ private extension Array where Element == LocalProductItem {
                 id: $0.id,
                 title: $0.title,
                 price: $0.price,
-                desctiption: $0.desctiption,
+                description: $0.description,
                 category: $0.category,
                 image: $0.imageURL,
                 rating: RatingItem(
@@ -96,7 +96,7 @@ private extension Array where Element == ProductItem {
                 id: $0.id,
                 title: $0.title,
                 price: $0.price,
-                desctiption: $0.desctiption,
+                description: $0.description,
                 category: $0.category,
                 imageURL: $0.image,
                 rating: LocalRatingItem(

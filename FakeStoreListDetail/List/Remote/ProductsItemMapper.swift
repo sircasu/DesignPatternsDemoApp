@@ -11,7 +11,7 @@ struct RemoteProductItem: Decodable {
     let id: Int
     let title: String
     let price: Double?
-    let desctiption: String?
+    let description: String?
     let category: String?
     let image: URL?
     let rating: RemoteRatingItem?

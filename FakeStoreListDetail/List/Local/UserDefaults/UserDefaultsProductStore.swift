@@ -14,7 +14,7 @@ final class UserDefaultsProductStore: ProductStore {
         let timestamp: Date
         
         var localProducts: [LocalProductItem] {
-            return products.map { LocalProductItem(id: $0.id, title: $0.title, price: $0.price, desctiption: $0.desctiption, category: $0.category, imageURL: $0.imageURL, rating: LocalRatingItem(rate: $0.rating?.rate, count: $0.rating?.count)) }
+            return products.map { LocalProductItem(id: $0.id, title: $0.title, price: $0.price, description: $0.description, category: $0.category, imageURL: $0.imageURL, rating: LocalRatingItem(rate: $0.rating?.rate, count: $0.rating?.count)) }
         }
     }
     

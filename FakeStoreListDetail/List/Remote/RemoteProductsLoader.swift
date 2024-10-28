@@ -50,6 +50,6 @@ final class RemoteProductsLoader: ProductsLoader {
 private extension Array where Element == RemoteProductItem {
     
     var toItems: [ProductItem] {
-        map { ProductItem(id: $0.id, title: $0.title, price: $0.price, desctiption: $0.desctiption, category: $0.category, image: $0.image, rating: RatingItem(rate: nil, count: nil)) }
+        map { ProductItem(id: $0.id, title: $0.title, price: $0.price, description: $0.description, category: $0.category, image: $0.image, rating: RatingItem(rate: nil, count: nil)) }
     }
 }

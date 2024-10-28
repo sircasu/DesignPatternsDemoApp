@@ -76,8 +76,14 @@ extension ListViewController: UITableViewDataSource {
         formatter.locale = Locale.current // Change this to another locale if you want to force a specific locale, otherwise this is redundant as the current locale is the default already
         formatter.numberStyle = .currency
         
-        let price = formatter.string(from: item.price! as NSNumber) ?? "0.00"
-        cell.textLabel?.text = "\(item.title) - Price: \(price)"
+        if let itemPrice = item.price {
+            let price = formatter.string(from: itemPrice as NSNumber) ?? "0.00"
+            cell.textLabel?.text = "\(item.title) - Price: \(price)"
+        } else {
+            cell.textLabel?.text = "\(item.title)"
+        }
+//        let price = formatter.string(from: item.price! as NSNumber) ?? "0.00"
+//        cell.textLabel?.text = "\(item.title) - Price: \(price)"
         
         return cell
     }
